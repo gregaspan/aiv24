@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <title>Community - Detailed View</title>
+</h:head>
+
+<h:body>
+    <f:view>
+        <h:form>
+            <div class="modern-heading">Communities - Detailed View</div>
+            <a href="#{facesContext.externalContext.applicationContextPath}/faces/all.xhtml" class="back-button">Back</a>
+            <hr />
+
+            <f:metadata>
+                <f:viewParam name="naziv" value="#{demo.selectedSkupnostNaziv}" />
+            </f:metadata>
+
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputText value="Community Name:" />
+                <h:outputText value="#{demo.selectedSkupnost.communitiyName}" />
+
+                <h:outputText value="Supervisor's Name:" />
+                <h:outputText value="#{demo.selectedSkupnost.adminName}" />
+
+                <h:outputText value="Supervisor's Surname:" />
+                <h:outputText value="#{demo.selectedSkupnost.adminSurname}" />
+
+                <h:outputText value="Supervisor's Email:" />
+                <h:outputText value="#{demo.selectedSkupnost.adminEmail}" />
+
+                <h:outputText value="Included MSEs:" />
+                <h:outputText value="#{demo.selectedSkupnost.MSEs}" />
+            </h:panelGrid>
+        </h:form>
+    </f:view>
+</h:body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <title>MSE - Detailed View</title>
+</h:head>
+
+<h:body>
+    <f:view>
+        <h:form>
+            <div class="modern-heading">MSE - Detailed View</div>
+            <a href="#{facesContext.externalContext.applicationContextPath}/faces/all.xhtml" class="back-button">Back</a>
+            <hr />
+
+            <f:metadata>
+                <f:viewParam name="email" value="#{demo.selectedMSEEmail}" />
+            </f:metadata>
+
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputText value="Name:" />
+                <h:outputText value="#{demo.selectedMSE.name}" />
+
+                <h:outputText value="Surname:" />
+                <h:outputText value="#{demo.selectedMSE.surname}" />
+
+                <h:outputText value="Email:" />
+                <h:outputText value="#{demo.selectedMSE.email}" />
+
+                <h:outputText value="Power (kW):" />
+                <h:outputText value="#{demo.selectedMSE.kw}" />
+
+                <h:outputText value="Latitude:" />
+                <h:outputText value="#{demo.selectedMSE.latitude}" />
+
+                <h:outputText value="Longitude:" />
+                <h:outputText value="#{demo.selectedMSE.longitude}" />
+            </h:panelGrid>
+        </h:form>
+    </f:view>
+</h:body>
+</html>

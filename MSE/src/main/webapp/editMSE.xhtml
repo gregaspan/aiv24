@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Portal MSE</title>
+</h:head>
+
+<h:body>
+	<f:view>
+		<h:form>
+			<div class="container mt-4">
+				<h1 class="mb-3">MSE</h1>
+				<div class="mb-3">
+					<a href="#{facesContext.externalContext.applicationContextPath}/faces/all.xhtml" class="btn btn-info">Overview</a>
+				</div>
+				<hr />
+
+				<f:metadata>
+					<f:viewParam name="email" value="#{demo.selectedMSEEmail}" />
+				</f:metadata>
+
+				<div class="form-group">
+					Latitude: <h:inputText id="n_zemljepisnaSirina" value="#{demo.selectedMSE.latitude}" class="form-control"/>
+				</div>
+				<div class="form-group">
+					Longitude: <h:inputText id="n_zemljepisnaDolzina" value="#{demo.selectedMSE.longitude}" class="form-control"/>
+				</div>
+				<div class="form-group">
+					Name: <h:inputText id="n_ime" value="#{demo.selectedMSE.name}" class="form-control"/>
+				</div>
+				<div class="form-group">
+					Surname: <h:inputText id="n_priimek" value="#{demo.selectedMSE.surname}" class="form-control"/>
+				</div>
+				<div class="form-group">
+					Email: <h:inputText id="n_email" value="#{demo.selectedMSE.email}" class="form-control" validatorMessage="Enter email!">
+					<f:validateRequired />
+				</h:inputText><h:message for="n_email" style="color:red" class="form-text"/>
+				</div>
+				<div class="form-group">
+					KW: <h:inputText id="n_kw" value="#{demo.selectedMSE.kw}" class="form-control"/>
+				</div>
+
+				<h:commandButton value="Save" action="#{demo.saveMSE}" class="btn btn-secondary"/>
+			</div>
+		</h:form>
+	</f:view>
+</h:body>
+
+</html>

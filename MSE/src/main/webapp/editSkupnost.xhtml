@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <title>Portal MSE</title>
+</h:head>
+
+<h:body>
+    <f:view>
+        <h:form>
+            <div class="container mt-4">
+                <h1 class="mb-3">Communities</h1>
+                <div class="mb-3">
+                    <a href="#{facesContext.externalContext.applicationContextPath}/faces/all.xhtml" class="btn btn-info">Overview</a>
+                </div>
+                <hr />
+
+                <f:metadata>
+                    <f:viewParam name="naziv" value="#{demo.selectedSkupnostNaziv}" />
+                </f:metadata>
+
+
+                <h:selectManyCheckbox value="#{demo.selectedSkupnost.MSEs}" layout="pageDirection">
+                    <f:selectItems value="#{demo.allMSE}" var="mse" itemValue="#{mse.email}" itemLabel="#{mse.email}" />
+                </h:selectManyCheckbox>
+
+                <div class="form-group">
+                    Community Name: <h:inputText id="n_nazivSkupnosti" value="#{demo.selectedSkupnost.communitiyName}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    Name: <h:inputText id="n_imeSkrbnika" value="#{demo.selectedSkupnost.adminName}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    Surname: <h:inputText id="n_priimekSkrbnika" value="#{demo.selectedSkupnost.adminSurname}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    Email: <h:inputText id="n_emailSkrbnika" value="#{demo.selectedSkupnost.adminEmail}" class="form-control" validatorMessage="Enter email!">
+                    <f:validateRequired />
+                </h:inputText><h:message for="n_emailSkrbnika" style="color:red" />
+                </div>
+                <h:commandButton value="Save" action="#{demo.saveSkupnost}" class="btn btn-secondary"/>
+            </div>
+        </h:form>
+    </f:view>
+</h:body>
+
+</html>
